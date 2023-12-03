@@ -16,18 +16,6 @@ function Form() {
   );
 }
 
-function PackingList() {
-  return (
-    <div className="list">
-      <ul>
-        {initialItems.map((item) => (
-          <Item item={item} />
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 function Item({ item }) {
   return (
     <li>
@@ -37,6 +25,17 @@ function Item({ item }) {
       </span>
       <button>❌</button>
     </li>
+  );
+}
+function PackingList() {
+  return (
+    <div className="list">
+      <ul>
+        {initialItems.map((item) => (
+          <Item item={item} />
+        ))}
+      </ul>
+    </div>
   );
 }
 
