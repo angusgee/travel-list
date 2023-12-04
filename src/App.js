@@ -16,6 +16,7 @@ function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!description) return;
     const newItem = { description, quantity, packed: false, id: Date.now() };
     console.log(newItem);
   }
@@ -44,7 +45,6 @@ function Form() {
         placeholder="Item..."
         value={description}
         onChange={(e) => {
-          console.log(e.target);
           setDescription(e.target.value);
         }}
       ></input>
