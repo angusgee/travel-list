@@ -24,14 +24,20 @@ function Form() {
   return (
     <form className="add-form" onSubmit={handleSubmit}>
       <h3>What do you need for your 🥰 trip?</h3>
-      <select>
+      <select id="select">
         {numbersArray.map((num) => (
           <option value={num} key={num}>
             {num}
           </option>
         ))}
       </select>
-      <input type="text" placeholder="Item..."></input>
+      <input
+        id="input"
+        type="text"
+        placeholder="Item..."
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      ></input>
       <button>Add</button>
     </form>
   );
