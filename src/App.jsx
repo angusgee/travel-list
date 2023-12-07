@@ -164,7 +164,7 @@ function App() {
   }
 
   function handleClearList() {
-    setItems((items) => []);
+    setItems([]);
   }
 
   return (
