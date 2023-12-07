@@ -12,7 +12,7 @@ function Form({ onAddItems }) {
     e.preventDefault();
     if (!description) return;
     const newItem = { description, quantity, packed: false, id: Date.now() };
-    console.log(newItem);
+    // console.log(newItem);
     onAddItems(newItem);
     setDescription("");
     setQuantity(1);
@@ -87,12 +87,15 @@ function PackingList({ items, onDeleteItem, onToggleItem }) {
   );
 }
 
-function Stats({ numItems }) {
+function Stats({ items }) {
+  const numItems = items.length;
+  const numPackedItems = items.filter((item) => item.packed).length;
+
   return (
     <footer className="stats">
       <em>
-        👜You have {numItems} items on your list. You're (X%) packed for your
-        trip.
+        👜You have {numItems} items on your list. You're{" "}
+        {Math.floor((numPackedItems / numItems) * 100)}% packed for your trip.
       </em>
     </footer>
   );
@@ -100,7 +103,6 @@ function Stats({ numItems }) {
 
 function App() {
   const [items, setItems] = useState([]);
-  const numItems = items.length;
 
   function handleAddItems(item) {
     setItems((items) => [...items, item]);
@@ -127,7 +129,7 @@ function App() {
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
       />
-      <Stats numItems={numItems} />
+      <Stats items={items} />
     </div>
   );
 }
