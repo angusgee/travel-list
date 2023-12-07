@@ -95,7 +95,7 @@ function Stats({ items }) {
     <footer className="stats">
       <em>
         👜You have {numItems} items on your list. You're{" "}
-        {Math.floor((numPackedItems / numItems) * 100)}% packed for your trip.
+        {Math.round((numPackedItems / numItems) * 100)}% packed for your trip.
       </em>
     </footer>
   );
