@@ -91,7 +91,8 @@ function Stats({ numItems }) {
   return (
     <footer className="stats">
       <em>
-        👜You have {numItems} items on your list, and you already packed X (X%)
+        👜You have {numItems} items on your list, you are (X%) packed for your
+        trip.
       </em>
     </footer>
   );
